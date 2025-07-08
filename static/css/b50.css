@@ -1,0 +1,308 @@
+/* 变量与字体 */
+:root {
+  --chart-item-width: 440px;
+  --chart-item-height: 150px;
+  --chart-cover-size: 100px;
+  --chart-content-width: 290px;
+  --chart-content-inner-height: 140px;
+  --section-height-1: 39px;
+  --section-height-2: 24px;
+  --section-height-3: 52px;
+  --section-height-4: 39px;
+  --font-size-42: 48px;
+  --font-size-32: 42px;
+  --font-size-28: 32px;
+  --font-size-24: 28px;
+  --font-size-22: 26px;
+  --font-size-16: 22px;
+  --font-size-12: 16px;
+  --font-size-10: 12px;
+}
+
+@font-face {
+  font-family: 'ShangguMonoSC';
+  src: url('/static_mai_b50/fonts/ShangguMonoSC-Regular.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ChillRoundF';
+  src: url('/static_mai_b50/fonts/ChillRoundF.ttf') format('truetype');
+}
+
+body {
+  font-family: 'ChillRoundF';
+  margin: 0;
+  width: 2440px;
+  height: 2380px;
+}
+
+.b50-page {
+  width: 100%;
+  height: 100%;
+  background: url('/static_mai_b50/img/ui/b50_bg.png') no-repeat center center;
+  background-size: cover;
+}
+
+/* Player Info 区域 */
+.player-info-container {
+  height: 280px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 80px;
+  margin-bottom: 80px;
+}
+
+.player-info__avatar-wrapper {
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-info__avatar {
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+}
+
+.player-info__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.player-info__rating-value {
+  font-weight: bold;
+  font-size: 28px;
+  color: #ffd700;
+  padding-top: 3px;
+  padding-left: 120px;
+  display: inline-block;
+  position: relative;
+  letter-spacing: 1px;
+  font-family: 'ShangguMonoSC';
+}
+
+.player-info__name-box {
+  width: 365px;
+  height: 60px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 5px;
+  font-size: var(--font-size-32);
+  font-weight: bold;
+  padding-left: 20px;
+  border: 2px solid #b8b8b8;
+}
+
+.player-info__rating-summary {
+  width: 365px;
+  height: 35px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  font-size: var(--font-size-24);
+  padding-top: 2px;
+}
+
+/* 成绩列表容器 */
+.scores-container {
+  gap: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.score-section__grid {
+  display: grid;
+  grid-template-columns: repeat(5, var(--chart-item-width));
+  gap: 20px;
+  padding: 0 80px;
+}
+
+.chart-card {
+  width: var(--chart-item-width);
+  height: var(--chart-item-height);
+  display: flex;
+}
+
+.chart-card__cover {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.chart-card__cover-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.chart-card__cover-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.chart-card__type-tag {
+  position: absolute;
+  top: 136px;
+  left: 0;
+  width: 53px;
+  height: 20px;
+  object-fit: contain;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.chart-card__content {
+  width: var(--chart-content-width);
+  height: var(--chart-item-height);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.chart-card__content-inner {
+  width: 100%;
+  height: var(--chart-content-inner-height);
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  border: 1px solid rgb(0, 0, 0, 0.18);
+  border-left: none;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.chart-card__row--title {
+  height: var(--section-height-1);
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 16px;
+  border-bottom: 2px dashed rgba(255, 255, 255, 0.8);
+}
+
+.chart-card__title {
+  font-size: var(--font-size-24);
+  flex: 1;
+  font-family: 'ChillRoundF';
+  margin-right: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: 2px;
+}
+
+.chart-card__row--achievement {
+  height: var(--section-height-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 16px;
+}
+
+.chart-card__achievement {
+  font-size: var(--font-size-32);
+  color: #ffffff;
+  font-family: 'ChillRoundF';
+  font-weight: bold;
+}
+
+.chart-card__dx-stars {
+  padding-right: 12px;
+}
+
+.chart-card__row--detail {
+  height: var(--section-height-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  background-color: white;
+  color: black;
+  font-size: var(--font-size-24);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chart-card__detail-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.chart-card__detail-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0;
+}
+
+.chart-card__result-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+/* 难度颜色修饰符 */
+.chart-card--basic {
+  background-color: #4CAF50;
+}
+
+.chart-card--advanced {
+  background-color: #FF9800;
+}
+
+.chart-card--expert {
+  background-color: #e94c69;
+}
+
+.chart-card--master {
+  background-color: #8431c4;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.chart-card--remaster {
+  background-color: #bf7ff1;
+}
+
+/* Footer 区域 */
+.footer-container {
+  height: 240px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  background: url('/static_mai_b50/img/ui/footer.png') no-repeat center center;
+  background-size: cover;
+  height: 100px;
+  width: 1350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-32);
+}
