@@ -4,33 +4,34 @@
 
 ## 📁 项目结构
 
+```bash
 .
-├── main.py                          # 主程序入口（FastAPI 服务端）
-├── client.py                        # 客户端示例脚本
-├── format_covers.py                 # 曲绘文件名格式化工具
-├── client_data/                     # 客户端使用的测试数据（JSON）
-│   └── ...                          # json 数据
-├── src/                             # 核心应用模块
-│   ├── routers/                     # 路由模块（FastAPI 路由按功能拆分）
-│   │   ├── b50.py                   # b50 展示接口
-│   │   ├── music_data.py            # 曲目信息接口
-│   │   ├── scores_list.py           # 成绩列表接口
-│   │   └── table.py                 # 定数表与完成表接口
-│   ├── web/                         # 前端资源模块（模板 + 静态资源）
-│   │   ├── templates/               # Jinja2 模板目录
-│   │   │   ├── b50.html             # b50 页面模板
-│   │   │   ├── music_data.html      # 曲目信息页面
-│   │   │   ├── scores_list.html     # 分数列表页面
-│   │   │   └── table.html           # 定数表/完成表页面
-│   │   └── static/                  # 静态资源目录
-│   │       ├── img/                 # 图片资源
-│   │       └── ...                  # 字体、css 等资源
-│   ├── config.py                    # 配置项模块（如常量、路径）
-│   ├── models.py                    # Pydantic 数据模型定义
-│   └── utils.py                     # 工具函数集合
-├── requirements.txt                 # 项目依赖列表
-└── README.md                        # 项目说明文档
-
+├── main.py                                  # 主程序入口（FastAPI 服务端）
+├── client.py                                # 客户端示例脚本
+├── format_covers.py                         # 曲绘文件名格式化工具
+├── client_data/                     
+│   └── *.json                               # json 数据
+├── src/                             
+│   ├── routers/                             # 路由模块（FastAPI 路由按功能拆分）
+│   │   ├── b50.py                           # b50 展示接口
+│   │   ├── music_data.py                    # 曲目信息接口
+│   │   ├── scores_list.py                   # 成绩列表接口
+│   │   └── table.py                         # 定数表与完成表接口
+│   ├── web/                         
+│   │   ├── templates/               
+│   │   │   ├── b50.html                     # b50 页面模板
+│   │   │   ├── music_data.html              # 曲目信息页面
+│   │   │   ├── scores_list.html             # 分数列表页面
+│   │   │   └── table.html                   # 定数表/完成表页面
+│   │   └── static/                  
+│   │       ├── img/                         # 图片资源
+│   │       └── ...                          # 字体、css 等资源
+│   ├── config.py                            # 配置文件
+│   ├── models.py                            # 数据模型
+│   └── utils.py                             # 工具函数
+├── requirements.txt                         # 项目依赖列表
+└── README.md                                # 项目说明文档
+```
 
 ## 🚀 快速启动
 
@@ -94,8 +95,8 @@ python client.py
 2. 页面模板文件位于 `/src/web/templates/` 目录下，可自行设计或修改；
 3. 所有图片需放在 `/src/web/static/img/` 子目录中，路径需保持一致；
 4. `user.icon` 和 `user.nameplate` 若自定义则应包含完整文件名，具体见 client.py ；
-5. `music_data.json` 中须包含所有出现在成绩中的歌曲信息。
-6. `all.json` 中须包含所有出现在成绩中的绝赞信息。
+5. `music_data.json` 中须包含所有的歌曲信息。
+6. `all.json` 中须包含所有的绝赞信息。
 
 ## 📄 项目参考
 
