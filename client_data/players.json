@@ -1,13 +1,7 @@
 {
     "name": "Ｂａｍｂｏｍｂ",
-    "rating": 15833,
-    "is_login": false,
+    "rating": 15000,
     "icon": {
-        "id": 400402,
-        "name": "フルーンシュピラー",
-        "description": null,
-        "genre": null
-    },
-    "trophy": null,
-    "name_plate": null
+        "id": 400402
+    }
 }
