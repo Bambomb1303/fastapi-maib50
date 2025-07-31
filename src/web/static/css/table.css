@@ -1,0 +1,352 @@
+/* 变量与字体 */
+:root {
+  --chart-cover-size: 100px;
+}
+
+@font-face {
+  font-family: 'ShangguMonoSC';
+  src: url('/static_mai_b50/fonts/ShangguMonoSC-Regular.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ChillRoundF';
+  src: url('/static_mai_b50/fonts/ChillRoundF.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: '思源柔黑';
+  src: url('/static_mai_b50/fonts/思源柔黑-Medium.ttf') format('truetype');
+}
+
+body {
+  font-family: 'ChillRoundF';
+  margin: 0;
+  width: 1765px;
+  height: 100%;
+  
+}
+
+.b50-page {
+  width: 1765px;
+  height: 100%;
+  background: url('/static_mai_b50/img/ui/b50_bg.png') no-repeat center center;
+  background-size: cover;
+}
+
+/* Player Info 区域 */
+.title-container {
+  
+  width: 100%;
+  gap: 80px;
+  padding: 80px;
+  padding-bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 96px;
+  font-weight: bolder;
+  color: #8431c4;
+  text-shadow:
+    2px 2px 0 #fff,
+   -2px 2px 0 #fff,
+    2px -2px 0 #fff,
+   -2px -2px 0 #fff;
+  font-family: '思源柔黑';
+}
+
+/* 外层容器：纵向排列所有 Level 分组 */
+.scores-container {
+  display: flex;
+  flex-direction: column;
+  padding: 80px;
+  padding-bottom: 0px;
+}
+
+.score-section {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+/* 每组 Level + 网格：横向排列 */
+.score-section__row {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* 左侧 Level 标题 */
+.score-section__level-title {
+  background: url('/static_mai_b50/img/ui/lv.png') no-repeat center center;
+  background-size: contain; /* 保持比例缩放 */
+
+  width: 100px;     /* 设置宽度 */
+  height: 100px;     /* 设置高度 */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 32px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* 右侧谱面网格 */
+.score-section__grid {
+  display: grid;
+  grid-template-columns: repeat(14, var(--chart-cover-size));
+  gap: 5px;
+}
+
+.chart-card {
+  width: var(--chart-cover-size);
+  height: calc(var(--chart-cover-size) + 20px);
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-card__cover {
+  width: var(--chart-cover-size);
+  height: var(--chart-cover-size);
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.chart-card__cover-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.chart-card__cover-image {
+  width: calc(var(--chart-cover-size) - 10px);
+  height: calc(var(--chart-cover-size) - 10px);
+  border-radius: 5px;
+}
+
+.chart-card__type-tag {
+  width: 42px;
+  padding-left: 5px;
+}
+
+.chart-card__bottom {
+  padding-right: 5px;
+  height: 15px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.chart-id {
+  margin-left: auto;
+  font-size: 10px;
+  line-height: 12px;
+}
+/* 难度颜色修饰符 */
+.chart-card--basic {
+  background-color: #4CAF50;
+}
+
+.chart-card--advanced {
+  background-color: #FF9800;
+}
+
+.chart-card--expert {
+  background-color: #e94c69;
+}
+
+.chart-card--master {
+  background-color: #8431c4;
+}
+
+.chart-card--remaster {
+  background-color: #bf7ff1;
+}
+
+/* Footer 区域 */
+.footer-container {
+  height: 240px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  background: url('/static_mai_b50/img/ui/footer.png') no-repeat center center;
+  background-size: cover;
+  height: 100px;
+  width: 1350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+}
+
+.chart-overlay-black {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 5px; left: 5px; right: 0px; bottom: 0px;
+  pointer-events: none;
+  z-index: 10;
+  border-radius: 5px;
+}
+
+
+.chart-overlay-img {
+  position: absolute;
+  top: 0px; left: 0px; right: 0px; bottom: 0px;
+  background-repeat: no-repeat;
+  background-size: 80px auto;
+  background-position: center;
+  pointer-events: none;
+  z-index: 11;
+}
+
+
+.summary-table {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 36px;
+  align-items: center;
+  justify-content: center;
+  text-shadow: none;
+}
+
+.table_row {
+  display: flex;
+  width: 100%;
+}
+
+.table_cell {
+  flex: 1;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: bold;
+  border-right: 2px solid #8431c4;
+  border-bottom: none;
+}
+
+.table_cell:last-child {
+  border-right: none;
+}
+
+.table_top {
+  background-color: #bf7ff1;
+  border-bottom: 2px solid #8431c4;
+  color: white;
+}
+
+.table_bottom {
+  background-color: #fff;
+  color: #333;
+}
+
+
+.chart-overlay-img.fc0 {
+  background-image: url('/static_mai_b50/img/ui/UI_MSS_MBase_Icon_APp.png');
+}
+
+.chart-overlay-img.fc1 {
+  background-image: url('/static_mai_b50/img/ui/UI_MSS_MBase_Icon_AP.png');
+}
+
+.chart-overlay-img.fc2 {
+  background-image: url('/static_mai_b50/img/ui/UI_MSS_MBase_Icon_FCp.png');
+}
+
+
+.chart-overlay-img.fc3 {
+  background-image: url('/static_mai_b50/img/ui/UI_MSS_MBase_Icon_FC.png');
+}
+
+
+.chart-overlay-img.fs0 {
+  background-image: url('/static_mai_b50/img/ui/UI_MSS_MBase_Icon_Sync.png');
+}
+
+.chart-overlay-img.fs1 {
+  background-image: url('/static_mai_b50/img/ui/UI_MSS_MBase_Icon_FS.png');
+}
+
+.chart-overlay-img.fs2 {
+  background-image: url('/static_mai_b50/img/ui/UI_MSS_MBase_Icon_FSp.png');
+}
+
+.chart-overlay-img.fs3 {
+  background-image: url('/static_mai_b50/img/ui/UI_MSS_MBase_Icon_FSD.png');
+}
+
+.chart-overlay-img.fs4 {
+  background-image: url('/static_mai_b50/img/ui/UI_MSS_MBase_Icon_FSDp.png');
+}
+
+.chart-overlay-img.rate0 {
+  background-image: url('/static_mai_b50/img/ui/UI_TTR_Rank_SSSp.png');
+}
+
+.chart-overlay-img.rate1 {
+  background-image: url('/static_mai_b50/img/ui/UI_TTR_Rank_SSS.png');
+}
+
+.chart-overlay-img.rate2 {
+  background-image: url('/static_mai_b50/img/ui/UI_TTR_Rank_SSp.png');
+}
+
+.chart-overlay-img.rate3 {
+  background-image: url('/static_mai_b50/img/ui/UI_TTR_Rank_SS.png');
+}
+
+.chart-overlay-img.rate4 {
+  background-image: url('/static_mai_b50/img/ui/UI_TTR_Rank_Sp.png');
+}
+
+.chart-overlay-img.rate5 {
+  background-image: url('/static_mai_b50/img/ui/UI_TTR_Rank_S.png');
+}
+
+.chart-overlay-img.rate6 {
+  background-image: url('/static_mai_b50/img/ui/UI_TTR_Rank_AAA.png');
+}
+
+.chart-overlay-img.rate7 {
+  background-image: url('/static_mai_b50/img/ui/UI_TTR_Rank_AA.png');
+}
+
+.chart-overlay-img.rate8 {
+  background-image: url('/static_mai_b50/img/ui/UI_TTR_Rank_A.png');
+}
+
+.chart-overlay-img.rate9 {
+  background-image: url('/static_mai_b50/img/ui/UI_TTR_Rank_BBB.png');
+}
+
+.chart-overlay-img.rate10 {
+  background-image: url('/static_mai_b50/img/ui/UI_TTR_Rank_BB.png');
+}
+
+.chart-overlay-img.rate11 {
+  background-image: url('/static_mai_b50/img/ui/UI_TTR_Rank_B.png');
+}
+
+.chart-overlay-img.rate12 {
+  background-image: url('/static_mai_b50/img/ui/UI_TTR_Rank_C.png');
+}
+
+.chart-overlay-img.rate13 {
+  background-image: url('/static_mai_b50/img/ui/UI_TTR_Rank_D.png');
+}

@@ -1,0 +1,233 @@
+{
+  "song": {
+    "id": 1311,
+    "title": "躯樹の墓守",
+    "artist": "隣の庭は青い(庭師+Aoi)",
+    "genre": "maimai",
+    "bpm": 211,
+    "map": null,
+    "version": 22007,
+    "rights": null,
+    "aliases": [
+      "躯樹の墓守",
+      "躯树の墓守",
+      "墓守",
+      "噔噔",
+      "🌳",
+      "树",
+      "守墓人",
+      "小红帽",
+      "躯树的墓守",
+      "红色羽毛球"
+    ],
+    "disabled": false,
+    "difficulties": {
+      "standard": [],
+      "dx": [
+        {
+          "type": "dx",
+          "level": "6",
+          "level_value": 6,
+          "level_index": 0,
+          "note_designer": "",
+          "version": 22007,
+          "tap_num": 214,
+          "hold_num": 16,
+          "slide_num": 6,
+          "touch_num": 10,
+          "break_num": 6,
+          "curve": {
+            "sample_size": 3758,
+            "fit_level_value": 6.481126121622175,
+            "avg_achievements": 96.45488302288405,
+            "stdev_achievements": 2.621418681121697,
+            "avg_dx_score": 627.7360298030867,
+            "rate_sample_size": {
+              "0": 2067,
+              "1": 590,
+              "2": 79,
+              "3": 57,
+              "4": 138,
+              "5": 115,
+              "6": 254,
+              "7": 183,
+              "8": 101,
+              "9": 18,
+              "10": 22,
+              "11": 22,
+              "12": 14,
+              "13": 98
+            },
+            "fc_sample_size": {
+              "0": 18,
+              "1": 22,
+              "2": 22,
+              "3": 14
+            }
+          }
+        },
+        {
+          "type": "dx",
+          "level": "9+",
+          "level_value": 9.8,
+          "level_index": 1,
+          "note_designer": "",
+          "version": 22007,
+          "tap_num": 404,
+          "hold_num": 24,
+          "slide_num": 26,
+          "touch_num": 10,
+          "break_num": 7,
+          "curve": {
+            "sample_size": 17687,
+            "fit_level_value": 9.958775872887914,
+            "avg_achievements": 97.23444359699178,
+            "stdev_achievements": 2.7291420411821057,
+            "avg_dx_score": 1142.9653983151468,
+            "rate_sample_size": {
+              "0": 2990,
+              "1": 1534,
+              "2": 1381,
+              "3": 1533,
+              "4": 2858,
+              "5": 2226,
+              "6": 3027,
+              "7": 1266,
+              "8": 646,
+              "9": 77,
+              "10": 32,
+              "11": 32,
+              "12": 26,
+              "13": 59
+            },
+            "fc_sample_size": {
+              "0": 77,
+              "1": 32,
+              "2": 32,
+              "3": 26
+            }
+          }
+        },
+        {
+          "type": "dx",
+          "level": "13",
+          "level_value": 13,
+          "level_index": 2,
+          "note_designer": "はっぴー",
+          "version": 22007,
+          "tap_num": 523,
+          "hold_num": 71,
+          "slide_num": 58,
+          "touch_num": 59,
+          "break_num": 10,
+          "curve": {
+            "sample_size": 51849,
+            "fit_level_value": 12.968455606640182,
+            "avg_achievements": 99.45036697525462,
+            "stdev_achievements": 1.6470830097157487,
+            "avg_dx_score": 1901.8649732878166,
+            "rate_sample_size": {
+              "0": 20024,
+              "1": 13198,
+              "2": 4648,
+              "3": 3511,
+              "4": 4078,
+              "5": 2423,
+              "6": 2483,
+              "7": 936,
+              "8": 367,
+              "9": 59,
+              "10": 18,
+              "11": 33,
+              "12": 22,
+              "13": 49
+            },
+            "fc_sample_size": {
+              "0": 59,
+              "1": 18,
+              "2": 33,
+              "3": 22
+            }
+          }
+        },
+        {
+          "type": "dx",
+          "level": "14+",
+          "level_value": 14.9,
+          "level_index": 3,
+          "note_designer": "超七味星人",
+          "version": 22007,
+          "tap_num": 761,
+          "hold_num": 80,
+          "slide_num": 116,
+          "touch_num": 24,
+          "break_num": 57,
+          "curve": {
+            "sample_size": 24861,
+            "fit_level_value": 14.985260947909262,
+            "avg_achievements": 95.08364617272068,
+            "stdev_achievements": 3.4646768191895667,
+            "avg_dx_score": 29262.515023530832,
+            "rate_sample_size": {
+              "0": 1188,
+              "1": 2015,
+              "2": 1391,
+              "3": 1718,
+              "4": 3510,
+              "5": 3372,
+              "6": 5224,
+              "7": 3624,
+              "8": 2111,
+              "9": 210,
+              "10": 118,
+              "11": 124,
+              "12": 90,
+              "13": 166
+            },
+            "fc_sample_size": {
+              "0": 210,
+              "1": 118,
+              "2": 124,
+              "3": 90
+            }
+          }
+        }
+      ],
+      "utage": []
+    }
+  },
+  "scores": [
+    {
+      "id": 1311,
+      "level": "13",
+      "level_index": 2,
+      "achievements": 100.95,
+      "fc": 1,
+      "fs": 0,
+      "dx_score": 2012,
+      "dx_rating": 292,
+      "play_count": 16,
+      "rate": 0,
+      "type": "dx",
+      "title": "躯樹の墓守",
+      "level_value": 13,
+      "level_dx_score": 2163
+    },
+    {
+      "id": 1311,
+      "level": "14+",
+      "level_index": 3,
+      "achievements": 98.8014,
+      "fc": null,
+      "fs": 0,
+      "dx_score": 2626,
+      "dx_rating": 298,
+      "play_count": 6,
+      "rate": 4,
+      "type": "dx",
+      "title": "躯樹の墓守",
+      "level_value": 14.9,
+      "level_dx_score": 3114
+    }
+  ]
+}

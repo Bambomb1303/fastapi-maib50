@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>舞萌DX</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="/static_mai_b50/css/music_data.css" rel="stylesheet">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div class="b50-page">
+
+    <div class="container-section">
+      <div class="table-container center-container">
+        歌曲信息
+      </div>
+    </div>
+
+    <!-- 第一层：基础信息 -->
+    <div class="container-section">
+      <div class="info-container table--black">
+        <div class="left">
+          <img src="/static_mai_b50/img/covers/{{ minfo.song.id }}.png" alt="乐曲图片">
+        </div>
+        <div class="right">
+          <div class="info-text">
+            <h4>{{ minfo.song.title }}</h4>
+            <h5>{{ minfo.song.artist }}</h5>
+          </div>
+
+          <div class="info-text">
+            <p>BPM：{{ minfo.song.bpm }}</p>
+            <p>类型：{{ chart_type|upper }}</p>
+            <p>分类：{{ minfo.song.genre }}</p>
+            <p>版本：{{ minfo.song.version }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 第二层 -->
+    <div class="container-section">
+      <div class="table-container">
+        <div class="table table--black">
+          <div class="grid-box grid-4x6">
+            {% set diffs = minfo.song.difficulties[chart_type] %}
+            <div class="cell cell-title no-top-border no-left-border">难度</div>
+            <div class="cell cell-title no-top-border">拟合定数</div>
+            <div class="cell cell-title no-top-border">游玩情况</div>
+            <div class="cell cell-title no-top-border no-right-border">真绝赞数/总绝赞数/总物量</div>
+
+            <div class="cell no-left-border difficulty-title--BASIC">
+              <div class="dif">BASIC {{ minfo.song.difficulties[chart_type][0].level_value}}</div>
+            </div>
+            {% if minfo.song.difficulties[chart_type][0].curve is not none %}
+            <div class="cell">{{ "%.4f"|format(minfo.song.difficulties[chart_type][0].curve.fit_level_value|float) }}
+            </div>
+            {% else %}
+            <div class="cell">无数据</div>
+            {% endif %}
+            <div class="cell achievements">
+              <div class="achievements-abs-container">
+                <span class="score-text">
+                  {% if minfo.scores[0].achievements == "未游玩" %}
+                  未游玩
+                  {% else %}
+                  {{ "%.4f"|format(minfo.scores[0].achievements|float) }}%
+                  {% endif %}
+                </span>
+
+                {% if minfo.scores[0].fc is not none %}
+                <img src="/static_mai_b50/img/ui/{{ get_fc_image(minfo.scores[0].fc) }}" alt="FC图标"
+                  class="result-icon fc-icon">
+                {% else %}
+                <span class="result-icon-placeholder fc-icon"></span>
+                {% endif %}
+
+                {% if minfo.scores[0].fs is not none %}
+                <img src="/static_mai_b50/img/ui/{{ get_fs_image(minfo.scores[0].fs) }}" alt="FS图标"
+                  class="result-icon fs-icon">
+                {% else %}
+                <span class="result-icon-placeholder fs-icon"></span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="cell no-right-border">{{ minfo.scores[0].special_breaks }} / {{ minfo.scores[0].break_num }} /
+              {{ minfo.scores[0].total_notes }}</div>
+
+            <div class="cell no-left-border difficulty-title--ADVANCED">
+              <div class="dif">ADVANCED {{ minfo.song.difficulties[chart_type][1].level_value}}</div>
+            </div>
+            {% if minfo.song.difficulties[chart_type][1].curve is not none %}
+            <div class="cell">{{ "%.4f"|format(minfo.song.difficulties[chart_type][1].curve.fit_level_value|float) }}
+            </div>
+            {% else %}
+            <div class="cell">无数据</div>
+            {% endif %}
+            <div class="cell achievements">
+              <div class="achievements-abs-container">
+                <span class="score-text">
+                  {% if minfo.scores[1].achievements == "未游玩" %}
+                  未游玩
+                  {% else %}
+                  {{ "%.4f"|format(minfo.scores[1].achievements|float) }}%
+                  {% endif %}
+                </span>
+
+                {% if minfo.scores[1].fc is not none %}
+                <img src="/static_mai_b50/img/ui/{{ get_fc_image(minfo.scores[1].fc) }}" alt="FC图标"
+                  class="result-icon fc-icon">
+                {% else %}
+                <span class="result-icon-placeholder fc-icon"></span>
+                {% endif %}
+
+                {% if minfo.scores[1].fs is not none %}
+                <img src="/static_mai_b50/img/ui/{{ get_fs_image(minfo.scores[1].fs) }}" alt="FS图标"
+                  class="result-icon fs-icon">
+                {% else %}
+                <span class="result-icon-placeholder fs-icon"></span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="cell no-right-border">{{ minfo.scores[1].special_breaks }} / {{ minfo.scores[1].break_num }} /
+              {{ minfo.scores[1].total_notes }}</div>
+
+
+
+            <div class="cell no-left-border difficulty-title--EXPERT">
+              <div class="dif">EXPERT {{ minfo.song.difficulties[chart_type][2].level_value}}</div>( {{
+              minfo.song.difficulties[chart_type][2].note_designer }} )
+            </div>
+            {% if minfo.song.difficulties[chart_type][2].curve is not none %}
+            <div class="cell">{{ "%.4f"|format(minfo.song.difficulties[chart_type][2].curve.fit_level_value|float) }}
+            </div>
+            {% else %}
+            <div class="cell">无数据</div>
+            {% endif %}
+            <div class="cell achievements">
+              <div class="achievements-abs-container">
+                <span class="score-text">
+                  {% if minfo.scores[2].achievements == "未游玩" %}
+                  未游玩
+                  {% else %}
+                  {{ "%.4f"|format(minfo.scores[2].achievements|float) }}%
+                  {% endif %}
+                </span>
+
+                {% if minfo.scores[2].fc is not none %}
+                <img src="/static_mai_b50/img/ui/{{ get_fc_image(minfo.scores[2].fc) }}" alt="FC图标"
+                  class="result-icon fc-icon">
+                {% else %}
+                <span class="result-icon-placeholder fc-icon"></span>
+                {% endif %}
+
+                {% if minfo.scores[2].fs is not none %}
+                <img src="/static_mai_b50/img/ui/{{ get_fs_image(minfo.scores[2].fs) }}" alt="FS图标"
+                  class="result-icon fs-icon">
+                {% else %}
+                <span class="result-icon-placeholder fs-icon"></span>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="cell no-right-border">{{ minfo.scores[2].special_breaks }} / {{ minfo.scores[2].break_num }} /
+              {{ minfo.scores[2].total_notes }}</div>
+
+            <div
+              class="cell no-left-border {% if diffs|length == 4 %}no-bottom-border{% endif %} difficulty-title--MASTER">
+              <div class="dif">MASTER {{ minfo.song.difficulties[chart_type][3].level_value }}</div>( {{
+              minfo.song.difficulties[chart_type][3].note_designer }} )
+            </div>
+            {% if minfo.song.difficulties[chart_type][3].curve is not none %}
+            <div class="cell {% if diffs|length == 4 %}no-bottom-border{% endif %}">{{ "%.4f"|format(minfo.song.difficulties[chart_type][3].curve.fit_level_value|float) }}
+            </div>
+            {% else %}
+            <div class="cell {% if diffs|length == 4 %}no-bottom-border{% endif %}">无数据</div>
+            {% endif %}
+            <div class="cell achievements">
+              <div class="achievements-abs-container">
+                <span class="score-text">
+                  {% if minfo.scores[3].achievements == "未游玩" %}
+                  未游玩
+                  {% else %}
+                  {{ "%.4f"|format(minfo.scores[3].achievements|float) }}%
+                  {% endif %}
+                </span>
+
+                {% if minfo.scores[3].fc is not none %}
+                <img src="/static_mai_b50/img/ui/{{ get_fc_image(minfo.scores[3].fc) }}" alt="FC图标"
+                  class="result-icon fc-icon">
+                {% else %}
+                <span class="result-icon-placeholder fc-icon"></span>
+                {% endif %}
+
+                {% if minfo.scores[3].fs is not none %}
+                <img src="/static_mai_b50/img/ui/{{ get_fs_image(minfo.scores[3].fs) }}" alt="FS图标"
+                  class="result-icon fs-icon">
+                {% else %}
+                <span class="result-icon-placeholder fs-icon"></span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="cell no-right-border {% if diffs|length == 4 %}no-bottom-border{% endif %}">
+              {{ minfo.scores[3].special_breaks }} / {{ minfo.scores[3].break_num }} / {{ minfo.scores[3].total_notes }}
+            </div>
+
+            {% if diffs|length > 4 %}
+            <div class="cell no-left-border difficulty-title--ReMASTER">
+              <div class="dif">ReMASTER</div>{{ minfo.song.difficulties[chart_type][4].level_value}} ( {{
+              minfo.song.difficulties[chart_type][4].note_designer }} )
+            </div>
+
+            {% if minfo.song.difficulties[chart_type][4].curve is not none %}
+            <div class="cell no-bottom-border">{{ "%.4f"|format(minfo.song.difficulties[chart_type][4].curve.fit_level_value|float) }}
+            </div>
+            {% else %}
+            <div class="cell no-bottom-border">无数据</div>
+            {% endif %}
+
+            
+
+            <div class="cell achievements">
+              <div class="achievements-abs-container">
+                <span class="score-text">
+                  {% if minfo.scores[4].achievements == "未游玩" %}
+                  未游玩
+                  {% else %}
+                  {{ "%.4f"|format(minfo.scores[4].achievements|float) }}%
+                  {% endif %}
+                </span>
+
+                {% if minfo.scores[4].fc is not none %}
+                <img src="/static_mai_b50/img/ui/{{ get_fc_image(minfo.scores[4].fc) }}" alt="FC图标"
+                  class="result-icon fc-icon">
+                {% else %}
+                <span class="result-icon-placeholder fc-icon"></span>
+                {% endif %}
+
+                {% if minfo.scores[4].fs is not none %}
+                <img src="/static_mai_b50/img/ui/{{ get_fs_image(minfo.scores[4].fs) }}" alt="FS图标"
+                  class="result-icon fs-icon">
+                {% else %}
+                <span class="result-icon-placeholder fs-icon"></span>
+                {% endif %}
+              </div>
+            </div>
+
+
+
+            <div class="cell no-right-border no-bottom-border">{{ minfo.scores[4].special_breaks }} / {{
+              minfo.scores[4].break_num }} / {{
+              minfo.scores[4].total_notes }}</div>
+
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 中间层 -->
+    <div class="container-section">
+      <div class="center-container">
+        {% set difficulty_names = ['BASIC', 'ADVANCED', 'EXPERT', 'MASTER', 'ReMASTER'] %}
+        <div class="dif-text--{{ get_difficulty_class(level_index) }}"> {{ difficulty_names[level_index] }} </div>谱面详细数据
+      </div>
+    </div>
+
+    <!-- 第三层 -->
+    <div class="container-section">
+      <div class="table-container">
+        <div class="table table--{{ get_difficulty_class(level_index) }} table-left">
+          <div class="grid-box grid-4x8">
+            <!-- Row 0 -->
+            <div class="cell no-top-border no-left-border no-right-border"> </div>
+            <div class="cell Great no-top-border no-left-border no-right-border no-bottom-border">Great</div>
+            <div class="cell Good no-top-border no-left-border no-right-border no-bottom-border">Good</div>
+            <div class="cell Miss no-top-border no-left-border no-right-border no-bottom-border">Miss</div>
+
+            <!-- Row 1 -->
+            <div class="cell cell-title">Tap</div>
+            <div class="cell Great_text"> {{ minfo.scores[level_index].deductions.TAP_GREAT }} </div>
+            <div class="cell Good_text"> {{ minfo.scores[level_index].deductions.TAP_GOOD }} </div>
+            <div class="cell Miss_text no-right-border"> {{ minfo.scores[level_index].deductions.TAP_MISS }} </div>
+
+            <!-- Row 2 -->
+            <div class="cell cell-title">Hold</div>
+            <div class="cell Great_text"> {{ minfo.scores[level_index].deductions.HOLD_GREAT }} </div>
+            <div class="cell Good_text"> {{ minfo.scores[level_index].deductions.HOLD_GOOD }} </div>
+            <div class="cell Miss_text no-right-border"> {{ minfo.scores[level_index].deductions.HOLD_MISS }} </div>
+
+            <!-- Row 3 -->
+            <div class="cell cell-title">Slide</div>
+            <div class="cell Great_text"> {{ minfo.scores[level_index].deductions.SLIDE_GREAT }} </div>
+            <div class="cell Good_text"> {{ minfo.scores[level_index].deductions.SLIDE_GOOD }} </div>
+            <div class="cell Miss_text no-right-border"> {{ minfo.scores[level_index].deductions.SLIDE_MISS }} </div>
+
+            <!-- Row 4 to 6：Break，跨3行，左边列 -->
+            <div class="cell merge-3rows col1 cell-title">Break</div>
+            <!-- Row 4 -->
+            <div class="cell Great_text"> {{ minfo.scores[level_index].deductions.BREAK_GREAT4x }} </div>
+            <div class="cell merge-3rows col3 Good_text"> {{ minfo.scores[level_index].deductions.BREAK_GOOD }} </div>
+            <div class="cell merge-3rows col4 Miss_text no-right-border"> {{
+              minfo.scores[level_index].deductions.BREAK_MISS }} </div>
+
+            <!-- Row 5 -->
+            <div class="cell Great_text"> {{ minfo.scores[level_index].deductions.BREAK_GREAT3x }} </div>
+
+            <!-- Row 6 -->
+            <div class="cell Great_text"> {{ minfo.scores[level_index].deductions.BREAK_GREAT25x }} </div>
+
+            <!-- Row 7 -->
+            <div class="cell cell-title">50落</div>
+            <div class="cell Miss_text no-bottom-border"> {{ minfo.scores[level_index].deductions.BREAK_50 }} </div>
+            <div class="cell cell-title">100落</div>
+            <div class="cell Miss_text no-right-border no-bottom-border"> {{
+              minfo.scores[level_index].deductions.BREAK_100 }} </div>
+          </div>
+
+        </div>
+
+        <div class="table table--{{ get_difficulty_class(level_index) }} table-right">
+          <div class="grid-box grid-3x8">
+            <div class="cell cell-title">分数线</div>
+            <div class="cell cell-title">Rating</div>
+            <div class="cell cell-title">Great Tap</div>
+
+            <div class="cell cell-odd">SSS+</div>
+            <div class="cell cell-odd">{{ (minfo.song.difficulties[chart_type][3].level_value * 100.5 * 22.4 / 100) |
+              int }}</div>
+            <div class="cell cell-odd">{{ minfo.scores[level_index].tolerance[100.5] }} 个</div>
+
+            <div class="cell cell-even">SSS</div>
+            <div class="cell cell-even">{{ (minfo.song.difficulties[chart_type][3].level_value * 100 * 21.6 / 100) | int
+              }}</div>
+            <div class="cell cell-even">{{ minfo.scores[level_index].tolerance[100] }} 个</div>
+
+            <div class="cell cell-odd">SS+</div>
+            <div class="cell cell-odd">{{ (minfo.song.difficulties[chart_type][3].level_value * 99.5 * 21.1 / 100) | int
+              }}</div>
+            <div class="cell cell-odd">{{ minfo.scores[level_index].tolerance[99.5] }} 个</div>
+
+            <div class="cell cell-even">SS</div>
+            <div class="cell cell-even">{{ (minfo.song.difficulties[chart_type][3].level_value * 99 * 20.8 / 100) | int
+              }}</div>
+            <div class="cell cell-even">{{ minfo.scores[level_index].tolerance[99] }} 个</div>
+
+            <div class="cell cell-odd">S+</div>
+            <div class="cell cell-odd">{{ (minfo.song.difficulties[chart_type][3].level_value * 98 * 20.3 / 100) | int
+              }}</div>
+            <div class="cell cell-odd">{{ minfo.scores[level_index].tolerance[98] }} 个</div>
+
+            <div class="cell cell-even">S</div>
+            <div class="cell cell-even">{{ (minfo.song.difficulties[chart_type][3].level_value * 97 * 20 / 100) | int }}
+            </div>
+            <div class="cell cell-even">{{ minfo.scores[level_index].tolerance[97] }} 个</div>
+
+            <div class="cell cell-odd">霸者</div>
+            <div class="cell cell-odd">{{ (minfo.song.difficulties[chart_type][3].level_value * 80 * 13.6 / 100) | int
+              }}</div>
+            <div class="cell cell-odd">{{ minfo.scores[level_index].tolerance[80] }} 个</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 第四层 -->
+    <div class="container-section">
+      <div class="table-container">
+        <div class="table table--{{ get_difficulty_class(level_index) }}">
+          <div class="grid-box grid-6x2">
+            <div class="cell">DX等级</div>
+
+            <div class="cell"><img src="/static_mai_b50/img/ui/UI_GAM_Gauge_DXScoreIcon_05.png" alt="五星"
+                class="star-icon"></div>
+            <div class="cell"><img src="/static_mai_b50/img/ui/UI_GAM_Gauge_DXScoreIcon_04.png" alt="四星"
+                class="star-icon"></div>
+            <div class="cell"><img src="/static_mai_b50/img/ui/UI_GAM_Gauge_DXScoreIcon_03.png" alt="三星"
+                class="star-icon"></div>
+            <div class="cell"><img src="/static_mai_b50/img/ui/UI_GAM_Gauge_DXScoreIcon_02.png" alt="二星"
+                class="star-icon"></div>
+            <div class="cell"><img src="/static_mai_b50/img/ui/UI_GAM_Gauge_DXScoreIcon_01.png" alt="一星"
+                class="star-icon"></div>
+
+
+            <div class="cell">DX分数</div>
+
+            <div class="cell">{{ (minfo.scores[level_index].total_notes * 3 * 97 / 100) | round(0, 'ceil') | int }} (
+              -{{
+              (minfo.scores[level_index].total_notes * 3 ) - (minfo.scores[level_index].total_notes * 3 * 97 / 100) |
+              round(0, 'ceil') | int }} )</div>
+            <div class="cell">{{ (minfo.scores[level_index].total_notes * 3 * 95 / 100) | round(0, 'ceil') | int }} (
+              -{{
+              (minfo.scores[level_index].total_notes * 3 ) - (minfo.scores[level_index].total_notes * 3 * 95 / 100) |
+              round(0, 'ceil') | int }} )</div>
+            <div class="cell">{{ (minfo.scores[level_index].total_notes * 3 * 93 / 100) | round(0, 'ceil') | int }} (
+              -{{
+              (minfo.scores[level_index].total_notes * 3 ) - (minfo.scores[level_index].total_notes * 3 * 93 / 100) |
+              round(0, 'ceil') | int }} )</div>
+            <div class="cell">{{ (minfo.scores[level_index].total_notes * 3 * 90 / 100) | round(0, 'ceil') | int }} (
+              -{{
+              (minfo.scores[level_index].total_notes * 3 ) - (minfo.scores[level_index].total_notes * 3 * 90 / 100) |
+              round(0, 'ceil') | int }} )</div>
+            <div class="cell">{{ (minfo.scores[level_index].total_notes * 3 * 85 / 100) | round(0, 'ceil') | int }} (
+              -{{
+              (minfo.scores[level_index].total_notes * 3 ) - (minfo.scores[level_index].total_notes * 3 * 85 / 100) |
+              round(0, 'ceil') | int }} )</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-container center-container">
+      Generated by Bambomb.
+    </div>
+  </div>
+
+  </div>
+</body>
+
+</html>

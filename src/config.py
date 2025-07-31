@@ -1,18 +1,32 @@
 from pathlib import Path
 import json
 
-with open("music_data.json", "r", encoding="utf-8") as f:
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+with open(BASE_DIR / "client_data" / "songs.json", "r", encoding="utf-8") as f:
     music_data = json.load(f)    
 
 MUSIC_DATA = music_data
-BASE_DIR = Path(__file__).resolve().parent.parent
 
-version_map = {
-    "2020": "maimai でらっくす",
-    "2021": "maimai でらっくす Splash",
-    "2022": "maimai でらっくす UNiVERSE",
-    "2023": "maimai でらっくす FESTiVAL",
-    "2024": "maimai でらっくす BUDDiES",
-    "2025": "maimai でらっくす PRiSM"
+VERSION_RANGE_MAP = {
+    "10000": (10000, 11000),
+    "11000": (11000, 12000),
+    "12000": (12000, 13000),
+    "13000": (13000, 14000),
+    "14000": (14000, 15000),
+    "15000": (15000, 16000),
+    "16000": (16000, 17000),
+    "17000": (17000, 18000),
+    "18000": (18000, 18500),
+    "18500": (18500, 19000),
+    "19000": (19000, 19500),
+    "19500": (19500, 19900),
+    "19900": (19900, 20000),
+    "20000": (20000, 21000),
+    "21000": (21000, 22000),
+    "22000": (22000, 23000),
+    "23000": (23000, 24000),
+    "24000": (24000, 25000),
+    "25000": (25000, 30000),
 }
-

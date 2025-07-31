@@ -18,5 +18,5 @@ def rename_files_in_directory(directory):
                 print(f"已重命名：{filename} -> {new_name}")
 
 if __name__ == '__main__':
-    directory = str(Path(__file__).resolve().parent / "static" / "img" / "covers")
+    directory = str(Path(__file__).resolve().parent / "src" / "web" / "static" / "img" / "covers")
     rename_files_in_directory(directory)

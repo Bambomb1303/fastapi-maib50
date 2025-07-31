@@ -1,0 +1,18 @@
+# === Python 缓存 ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# === 虚拟环境 ===
+venv/
+.env
+.env.*
+
+# === 编辑器配置 ===
+.vscode/
+.idea/
+
+# === 数据文件（建议根据需要选择保留或忽略）===
+*.png
