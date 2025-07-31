@@ -212,22 +212,6 @@
       "title": "躯樹の墓守",
       "level_value": 13,
       "level_dx_score": 2163
-    },
-    {
-      "id": 1311,
-      "level": "14+",
-      "level_index": 3,
-      "achievements": 98.8014,
-      "fc": null,
-      "fs": 0,
-      "dx_score": 2626,
-      "dx_rating": 298,
-      "play_count": 6,
-      "rate": 4,
-      "type": "dx",
-      "title": "躯樹の墓守",
-      "level_value": 14.9,
-      "level_dx_score": 3114
     }
   ]
 }
